@@ -57,11 +57,10 @@ module.exports = function(app) {
       res.json({});
     } else {
       res.json({
-        team_name: req.team.team_name,
-        team_rank: req.team.team_rank,
-        battle_status: req.team.battle_status
+        teamName: req.team.team_name,
+        teamRank: req.team.team_rank,
+        battleStatus: req.team.battle_status
       });
     }
   });
-
 };
