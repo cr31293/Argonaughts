@@ -3,7 +3,6 @@ const bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
-    // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,10 +11,29 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    player_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    team_id: {
+      type: DataTypes.INTEGER,
+      default: null
+    },
+    team_name: {
+      type: DataTypes.STRING,
+      default: null
+    },
+    rank: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    mercenary_status: {
+      default: true
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
