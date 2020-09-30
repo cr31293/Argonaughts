@@ -50,4 +50,18 @@ module.exports = function(app) {
       });
     }
   });
+
+  // Route for getting data about user's team
+  app.get("/api/team_data", (req, res) => {
+    if (req.mercenary_status) {
+      res.json({});
+    } else {
+      res.json({
+        team_name: req.team.team_name,
+        team_rank: req.team.team_rank,
+        battle_status: req.team.battle_status
+      });
+    }
+  });
+
 };
