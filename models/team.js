@@ -31,6 +31,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         battle_status: {
             default: false
+        },
+        team_full: {
+            default: false
         }
     });        
 
