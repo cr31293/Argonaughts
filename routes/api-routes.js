@@ -8,6 +8,7 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
+    // Keys match things in model
     res.json({
       email: req.user.email,
       id: req.user.id,
@@ -26,6 +27,7 @@ module.exports = function(app) {
       password: req.body.password,
       playerName: req.body.playerName,
       rank: req.body.rank
+
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -65,9 +67,11 @@ module.exports = function(app) {
       res.json({});
     } else {
       res.json({
+
         teamName: req.team.teamName,
         teamRank: req.team.teamRank,
         battleStatus: req.team.battleStatus
+
       });
     }
   });
