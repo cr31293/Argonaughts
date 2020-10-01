@@ -15,25 +15,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    player_name: {
+    playerName: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    team_id: {
+    teamId: {
       type: DataTypes.INTEGER,
-      default: null
-    },
-    team_name: {
-      type: DataTypes.STRING,
       default: null
     },
     rank: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    mercenary_status: {
-      default: true
+    mercenaryStatus: {
+      type: DataTypes.BOOLEAN,
+      default: false
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database

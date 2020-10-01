@@ -11,7 +11,10 @@ module.exports = function(app) {
     // Keys match things in model
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
+      playerName: req.user.playerName,
+      rank: req.user.rank,
+      mercenaryStatus: req.user.mercenaryStatus,
     });
   });
 
@@ -22,7 +25,9 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
-      player_name: req.user.playerName
+      playerName: req.body.playerName,
+      rank: req.body.rank
+
     })
       .then(() => {
         res.redirect(307, "/api/login");
@@ -48,20 +53,25 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        playerName: req.user.playerName,
+        rank: req.user.rank,
+        mercenaryStatus: req.user.mercenaryStatus
       });
     }
   });
 
   // Route for getting data about user's team
   app.get("/api/team_data", (req, res) => {
-    if (req.mercenary_status) {
+    if (req.mercenaryStatus) {
       res.json({});
     } else {
       res.json({
-        team_name: req.team.team_name,
-        team_rank: req.team.team_rank,
-        battle_status: req.team.battle_status
+
+        teamName: req.team.teamName,
+        teamRank: req.team.teamRank,
+        battleStatus: req.team.battleStatus
+
       });
     }
   });
