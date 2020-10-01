@@ -16,7 +16,10 @@ $(document).ready(() => {
       rank: rankInput.val().trim()
     };
 
-    if (!userData.email || !userData.password || !userData.name || !userData.rank) {
+    if (!userData.email || 
+      !userData.password || 
+      !userData.name || 
+      !userData.rank) {
       return;
     }
     // If we have an email and password, run the signUpUser function
