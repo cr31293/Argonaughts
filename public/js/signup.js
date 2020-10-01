@@ -23,7 +23,7 @@ $(document).ready(() => {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
+    signUpUser(userData.email, userData.password, userData.name, userData.rank);
     emailInput.val("");
     passwordInput.val("");
     nameInput.val("");
@@ -32,12 +32,12 @@ $(document).ready(() => {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(userData) {
+  function signUpUser(email, password, name, rank) {
     $.post("/api/signup", {
-      email: userData.email,
-      password: userData.password,
-      player_name: userData.name,
-      rank: userData.rank
+      email,
+      password,
+      playerName: name,
+      rank: rank
     })
       .then(() => {
         window.location.replace("/members");
