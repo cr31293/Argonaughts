@@ -15,15 +15,15 @@ $(document).ready(() => {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    teamCreate(userData);
+    teamCreate(userData.name);
     nameInput.val("");
   });
   
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function teamCreate(userData) {
+  function teamCreate(name) {
     $.post("/api/signup", {
-      team_name: userData.name,
+      teamName: name,
     })
       .then(() => {
         window.location.replace("/team");
