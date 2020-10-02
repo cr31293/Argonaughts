@@ -70,7 +70,10 @@ module.exports = function(app) {
 
         teamName: req.team.teamName,
         teamRank: req.team.teamRank,
-        battleStatus: req.team.battleStatus
+        battleStatus: req.team.battleStatus,
+        wins: req.team.wins,
+        losses: req.team.losses,
+        winRate: req.team.winRate
 
       });
     }
