@@ -13,6 +13,18 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             default: false
         },
+        wins: {
+            type: DataTypes.INTEGER,
+            allownull:true
+        },
+        losses: {
+            type: DataTypes.INTEGER,
+            allownull:true
+        },
+        winRate: {
+            type: DataTypes.FLOAT,
+            allownull: true
+        }
     });        
 
     return Team;
