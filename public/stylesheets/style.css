@@ -8,8 +8,6 @@ form.login {
   color: #3fb5c5;
 }
 
-/* Homepage */
-/* Nav */
 .navbar {
   margin-bottom: 0;
   border: none;
@@ -18,7 +16,7 @@ form.login {
 .navbar-brand .glyphicon {
   margin-right: 6px;
 }
-/* Header */
+
 .hero {
   background: url(./assets.jpg) no-repeat center;
   background-size: cover;
@@ -33,25 +31,12 @@ form.login {
 }
 
 #heroText {
-  /* background: rgba(255, 255, 255, 0.51); */
-  z-index: -9; /*Moved one position above the -10 */
+  z-index: -9;
   height: auto;
   width: 600px;
   border-radius: 5px;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration: 2s;
   margin-top: 200px;
 }
-/*.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.5);
-    z-index: -9 Moved one position above the -10
-  }*/
 
 @media (min-width: 992px) {
   .hero .get-it {
@@ -83,18 +68,11 @@ form.login {
   text-align: center;
 }
 
-/* .hero .get-it .btn {
-    margin-left:10px;
-    margin-bottom:10px;
-    text-shadow:none;
-  } */
-/* Feature Section */
 .description {
   font-size: 16px;
   margin-bottom: 0;
 }
 .textBox {
-  /* text-align:center; */
   font-size: 20px;
   font-weight: 200;
   margin-top: 100px;
@@ -110,7 +88,7 @@ form.login {
   font-size: 36px;
   color: #fff;
   text-align: center;
-  /* display: inline block; */
+
   background: #000;
   border-radius: 50%;
   padding-top: 20px;
@@ -196,11 +174,10 @@ nav.vertical-nav {
 .signuph2 {
   font-weight: bold;
 }
-/* Recipe Search */
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  /* background: #f2f2f2; */
   font-family: "Open Sans", sans-serif;
 }
 
@@ -212,9 +189,6 @@ body {
 .searchTerm {
   border: 3px solid #00b4cc;
   padding: 5px;
-  /* height: 20px; */
-  /* border-radius: 5px; */
-  /* color: #9DBFAF; */
 }
 
 .searchTerm:focus {
@@ -225,13 +199,6 @@ body {
 }
 #searchRecipeButton {
   color: #000;
-  /* background: linear-gradient(270deg, #00d19b , #00d1bd ); */
-  /*background: transparent;
-    display: inline;
-    margin-left: -35px;
-    margin-top: 50px;
-    width:60%;
-    height: 50px;*/
 }
 #searchIcon {
   top: -26px;
@@ -258,12 +225,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: inline;
-  margin-top: 45px;
 }
 .inner-addon {
   position: relative;
 }
-/* style icon */
+
 .inner-addon .glyphicon {
   position: absolute;
   font-size: 20px;
@@ -278,14 +244,7 @@ body {
   padding-right: 30px;
 }
 
-/* Card stuff */
-
 .recipeCard {
-  /* overflow: hidden;
- box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
- -webkit-transition: .25s box-shadow;
- transition: .25s box-shadow;
- margin: 2px 2px 2px 2px*/
   border: 5px solid #000;
   box-shadow: 1px 3px 8px #000;
   border-radius: 5px;
@@ -372,15 +331,15 @@ hr {
 }
 
 #howItWorks {
-  background-image: url("/assets/img/indgedients.jpg");
+  background-image: url("/assets/img/");
   background-size: cover;
   height: 400px;
 }
-/* Form */
+
 .textarea {
   width: 100%;
   height: 60px;
-  /* padding: 12px 20px; */
+
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -395,7 +354,7 @@ hr {
   border-radius: 5px;
   margin-bottom: 10px;
   background: #fff;
-  /* height: auto; */
+
   margin-bottom: 10px;
 }
 
@@ -412,21 +371,14 @@ hr {
 }
 
 #dashboardContainer {
-  background-image: url("/assets/img/prep.jpg");
+  background-image: url("/assets/img/");
   position: relative;
   background-size: cover;
   background-position: center center;
-  /*width:100%;*/
-  /*height: 100%;*/
+
   height: 1400px;
   background-attachment: fixed;
 }
-/* #favtitle{
-  color: #fff;
-  font-size: 38px;
-  font-weight: 600px;
-  padding-top: 10px;
-} */
 
 #searchBox {
   border: 5px black solid;
@@ -446,12 +398,12 @@ hr {
 }
 
 #recipeContainer {
-  background-image: url("/assets/img/prep.jpg");
+  background-image: url("/assets/img/");
   position: relative;
   background-size: cover;
-  /*z-index: -10;*/
+
   background-position: center center;
-  /*width:100%;*/
+
   min-height: 1100px;
 }
 
@@ -462,7 +414,6 @@ hr {
   font-size: 20px;
   color: #000;
   margin-bottom: 5px;
-  /* margin-left: 30px; */
 }
 .textStyle {
   text-align: center;
