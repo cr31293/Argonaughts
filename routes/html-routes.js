@@ -29,8 +29,6 @@ module.exports = function(app) {
 
   // add route for team page
   app.get("/team", (req, res) => {
-    if (req.mercenary_status) {
-      res.sendFile(path.join(__dirname, "../public/team.html"));
-    }
+    res.sendFile(path.join(__dirname, "../public/team.html"));
   });
 };

@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         teamRank: {
             type: DataTypes.STRING,
-            allownull: false
+            allownull: true
         },
         battleStatus: {
             type: DataTypes.BOOLEAN,

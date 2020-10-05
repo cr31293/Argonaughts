@@ -37,6 +37,39 @@ module.exports = function(app) {
       });
   });
 
+  // signupTeam
+  app.post("/api/teamCreate", (req, res) => {
+    db.Team.create({
+      teamName: req.body.teamName
+    })
+      .then((data) => {
+        const newRow = data._previousDataValues;
+        console.log(newRow);
+        res.json(newRow);
+        db.User.update({
+          teamId: newRow.id
+        }, 
+        {
+          where: {id: req.user.id}
+        });
+      })
+      .catch(err => {
+        res.status(401).json(err);
+      });
+  });
+
+  // app.put("/api/teamLink", (req,res) => {
+  //   db.User.update({
+  //     teamId: req.body.id
+  //   }, 
+  //   {
+  //     where: {id: req.user.id}
+  //   }).then(() => {
+  //     res.json(db.user);
+  //     console.log(db.user);
+  //   });
+  // });
+
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
@@ -62,20 +95,14 @@ module.exports = function(app) {
   });
 
   // Route for getting data about user's team
-  app.get("/api/team_data", (req, res) => {
-    if (req.mercenaryStatus) {
-      res.json({});
-    } else {
-      res.json({
-
-        teamName: req.team.teamName,
-        teamRank: req.team.teamRank,
-        battleStatus: req.team.battleStatus,
-        wins: req.team.wins,
-        losses: req.team.losses,
-        winRate: req.team.winRate
-
-      });
-    }
+  app.get("/api/teamData", (req, res) => {
+    res.json({
+      teamName: req.team.teamName,
+      teamRank: req.team.teamRank,
+      battleStatus: req.team.battleStatus,
+      wins: req.team.wins,
+      losses: req.team.losses,
+      winRate: req.team.winRate
+    });
   });
 };
