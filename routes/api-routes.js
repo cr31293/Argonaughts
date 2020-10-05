@@ -26,35 +26,36 @@ module.exports = function(app) {
       email: req.body.email,
       password: req.body.password,
       playerName: req.body.playerName,
-      rank: req.body.rank
-
+      rank: req.body.rank,
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
 
   // signupTeam
-  app.post("/api/teamCreate", (req, res) => {
+  app.post("/api/team-create", (req, res) => {
     db.Team.create({
-      teamName: req.body.teamName
+      teamName: req.body.teamName,
     })
       .then((data) => {
         const newRow = data._previousDataValues;
         console.log(newRow);
         res.json(newRow);
-        db.User.update({
-          teamId: newRow.id,
-          mercenaryStatus: false
-        }, 
-        {
-          where: {id: req.user.id}
-        });
+        db.User.update(
+          {
+            teamId: newRow.id,
+            mercenaryStatus: false,
+          },
+          {
+            where: { id: req.user.id },
+          }
+        );
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -62,7 +63,7 @@ module.exports = function(app) {
   // app.put("/api/teamLink", (req,res) => {
   //   db.User.update({
   //     teamId: req.body.id
-  //   }, 
+  //   },
   //   {
   //     where: {id: req.user.id}
   //   }).then(() => {
@@ -87,31 +88,63 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
+        teamId: req.user.teamId,
         id: req.user.id,
         playerName: req.user.playerName,
         rank: req.user.rank,
-        mercenaryStatus: req.user.mercenaryStatus
+        mercenaryStatus: req.user.mercenaryStatus,
       });
     }
   });
 
   // Route for getting data about user's team
-  app.get("/api/teamData", (req, res) => {
-    res.json({
-      teamName: req.team.teamName,
-      teamRank: req.team.teamRank,
-      battleStatus: req.team.battleStatus,
-      wins: req.team.wins,
-      losses: req.team.losses,
-      winRate: req.team.winRate
+  app.get("/api/team-data", async (req, res) => {
+    if (req.user) {
+      const userInfo = await db.User.findOne({
+        where: {
+          id: req.user.id,
+        },
+      });
+      const teamInfo = await db.Team.findOne({
+        where: {
+          id: userInfo.teamId,
+        },
+      });
+      console.log(teamInfo);
+      res.json(teamInfo);
+    }
+  });
+
+  app.get("/api/user-fetch", (req, res) => {
+    if (req.user) {
+      db.User.findAll({
+        where: {
+          id: req.user.id,
+        },
+      }).then((data) => {
+        res.json(data[0]);
+      });
+    } else {
+      res.redirect("/api/user_data");
+    }
+  });
+
+  app.get("/api/free-agents", (req, res) => {
+    db.User.findAll({
+      where: {
+        mercenaryStatus: true,
+      },
+    }).then((data) => {
+      console.log(data);
+      res.json(data);
     });
   });
 
-  app.get("/api/freeAgents", (req, res) => {
-    db.User.findAll({
+  app.get("/api/open-teams", (req, res) => {
+    db.Team.findAll({
       where: {
-        mercenaryStatus: true
-      }
+        battleStatus: false,
+      },
     }).then((data) => {
       console.log(data);
       res.json(data);

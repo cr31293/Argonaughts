@@ -22,11 +22,11 @@ $(document).ready(() => {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function teamCreate(name) {
-    $.post("/api/teamCreate", {
+    $.post("/api/team-create", {
       teamName: name
     })
       .then(() => {
-        window.location.replace("/home");
+        window.location.replace("/login");
       })
       // If there's an error, handle it by throwing up a bootstrap alert
       .catch(handleLoginErr);
