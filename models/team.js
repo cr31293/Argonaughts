@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes) {
         winRate: {
             type: DataTypes.FLOAT,
             allownull: true
+        },
+        playerCount: {
+            type: DataTypes.INTEGER,
+            allownull: false
         }
     });        
 
