@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $.get("/api/user_data").then(data => {
+  $.get("/api/teamData").then(data => {
     $(".team-name").text(data.teamName);
     $(".team-info").append(`<li>${data.teamRank}</li>`);
     $(".team-info").append(`<li>${data.wins}</li>`);

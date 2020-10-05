@@ -10,7 +10,7 @@ $(document).ready(() => {
 
   $.get("/api/user_data").then(data => {
     if (data.teamId) {
-      $.get("/api/team_data").then(data => {
+      $.get("/api/teamData").then(data => {
         $(".team-name").text(data.teamName);
         $(".team-info").append(`<li>${data.teamRank}</li>`);
         $(".team-info").append(`<li>${data.wins}</li>`);
@@ -19,7 +19,7 @@ $(document).ready(() => {
       });
     } else {
       $(".team-info").append("To view your team information please create or join a team!");
-      $(".team-info").append(`<a class="btn btn-primary btn-lg m-2" href="#" role="button">Create A Team</a>`);
+      $(".team-info").append(`<a class="btn btn-primary btn-lg m-2" href="../teamSignup.html" role="button">Create A Team</a>`);
       $(".team-info").append(`<a class="btn btn-primary btn-lg m-2" href="#" role="button">Join A Team</a>`);
     }
   });
