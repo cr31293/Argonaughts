@@ -47,7 +47,8 @@ module.exports = function(app) {
         console.log(newRow);
         res.json(newRow);
         db.User.update({
-          teamId: newRow.id
+          teamId: newRow.id,
+          mercenaryStatus: false
         }, 
         {
           where: {id: req.user.id}
@@ -106,7 +107,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("api/freeAgents", (req, res) => {
+  app.get("/api/freeAgents", (req, res) => {
     db.User.findAll({
       where: {
         mercenaryStatus: true
