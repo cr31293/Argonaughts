@@ -105,4 +105,15 @@ module.exports = function(app) {
       winRate: req.team.winRate
     });
   });
+
+  app.get("api/freeAgents", (req, res) => {
+    db.User.findAll({
+      where: {
+        mercenaryStatus: true
+      }
+    }).then((data) => {
+      console.log(data);
+      res.json(data);
+    });
+  });
 };
