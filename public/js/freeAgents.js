@@ -3,8 +3,8 @@ $(document).ready(() => {
     console.log(data);
     const user = data;
 
-  for (let i = 0; i < user.length; i++) { 
-    const cardFormat = `
+    for (let i = 0; i < user.length; i++) { 
+      const cardFormat = `
 <div class="card">
   <div class="card-header">
     <span>${user[i].playerName}</span>
@@ -18,6 +18,6 @@ $(document).ready(() => {
   </div>
 </div>
 `;
-$("#freeAgents").prepend(cardFormat);
-  }});
+      $("#freeAgents").prepend(cardFormat);
+    }});
 });

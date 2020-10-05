@@ -19,7 +19,7 @@ $(document).ready(() => {
       });
     } else {
       $(".team-info").append("To view your team information please create or join a team!");
-      $(".team-info").append(`<a class="btn btn-primary btn-lg m-2" href="../teamSignup.html" role="button">Create A Team</a>`);
+      $(".team-info").append(`</br><a class="btn btn-primary btn-lg m-2" href="../teamSignup.html" role="button">Create A Team</a>`);
       $(".team-info").append(`<a class="btn btn-primary btn-lg m-2" href="#" role="button">Join A Team</a>`);
     }
   });
