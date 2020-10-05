@@ -98,7 +98,7 @@ module.exports = function(app) {
   });
 
   // Route for getting data about user's team
-  app.get("/api/team-data", async function(req, res) {
+  app.get("/api/team-data", async (req, res) => {
     if (req.user) {
       const userInfo = await db.User.findOne({
         where: {
