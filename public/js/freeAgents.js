@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $.get("/api/freeAgents").then(data => {
+  $.get("/api/free-agents").then(data => {
     console.log(data);
     const user = data;
 
