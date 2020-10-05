@@ -9,9 +9,10 @@ $(document).ready(() => {
     <span>${team[i].teamName}</span>
 </div>
 <div class="card-body">
-    <h5 class="card-title">Team Info</h5>
-    <ul class="card-text team-info">
-    <li>${team[i].teamRank}</li>
+    <h5 class="card-title">Current Roster</h5>
+    <ul class="card-text">
+    <li>Current Player Count: ${team[i].playerCount}</li>
+    <li>Current Team Rank: ${team[i].teamRank}</li>
     </ul>
     <a class="btn btn-primary btn-lg" href="#" role="button">Join</a>
 </div>

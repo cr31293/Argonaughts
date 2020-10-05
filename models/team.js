@@ -15,19 +15,22 @@ module.exports = function(sequelize, DataTypes) {
         },
         wins: {
             type: DataTypes.INTEGER,
-            allownull:true
+            allownull:false,
+            default: 0
         },
         losses: {
             type: DataTypes.INTEGER,
-            allownull:true
+            allownull:false,
+            default: 0
         },
         winRate: {
             type: DataTypes.FLOAT,
-            allownull: true
+            allownull:false,
+            default: 0
         },
         playerCount: {
             type: DataTypes.INTEGER,
-            allownull: false
+            allownull: false,
         }
     });        
 

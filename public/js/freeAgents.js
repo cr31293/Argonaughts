@@ -5,14 +5,14 @@ $(document).ready(() => {
 
     for (let i = 0; i < user.length; i++) { 
       const cardFormat = `
-<div class="card">
+<div class="card m-1">
   <div class="card-header">
-    <span>${user[i].playerName}</span>
+    <span>Player Info</span>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Player Info</h5>
-    <ul class="card-text member-info">
-      <li>${user[i].rank}</li>
+    <h5 class="card-title">${user[i].playerName}</h5>
+    <ul class="card-text">
+      <li>Rank: ${user[i].rank}</li>
     </ul>
     <a class="btn btn-primary btn-lg" href="#" role="button">Recruit</a>
   </div>
