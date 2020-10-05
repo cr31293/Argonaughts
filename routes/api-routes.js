@@ -42,20 +42,20 @@ module.exports = function(app) {
     db.Team.create({
       teamName: req.body.teamName
     })
-    .then((data) => {
-      const newRow = data._previousDataValues;
-      console.log(newRow);
-      res.json(newRow);
-      db.User.update({
-        teamId: newRow.id
-      }, 
-      {
-        where: {id: req.user.id}
+      .then((data) => {
+        const newRow = data._previousDataValues;
+        console.log(newRow);
+        res.json(newRow);
+        db.User.update({
+          teamId: newRow.id
+        }, 
+        {
+          where: {id: req.user.id}
+        });
       })
-    })
-    .catch(err => {
-      res.status(401).json(err);
-    });
+      .catch(err => {
+        res.status(401).json(err);
+      });
   });
 
   // app.put("/api/teamLink", (req,res) => {
@@ -96,13 +96,13 @@ module.exports = function(app) {
 
   // Route for getting data about user's team
   app.get("/api/teamData", (req, res) => {
-      res.json({
-        teamName: req.team.teamName,
-        teamRank: req.team.teamRank,
-        battleStatus: req.team.battleStatus,
-        wins: req.team.wins,
-        losses: req.team.losses,
-        winRate: req.team.winRate
+    res.json({
+      teamName: req.team.teamName,
+      teamRank: req.team.teamRank,
+      battleStatus: req.team.battleStatus,
+      wins: req.team.wins,
+      losses: req.team.losses,
+      winRate: req.team.winRate
     });
   });
 };

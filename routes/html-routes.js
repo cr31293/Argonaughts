@@ -29,6 +29,6 @@ module.exports = function(app) {
 
   // add route for team page
   app.get("/team", (req, res) => {
-      res.sendFile(path.join(__dirname, "../public/team.html"));
+    res.sendFile(path.join(__dirname, "../public/team.html"));
   });
 };
