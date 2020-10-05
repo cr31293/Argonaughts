@@ -1,9 +1,8 @@
 $(document).ready(() => {
-  $.get("/api/open-teams").then(data => {
-    console.log(data);
+  $.get("/api/open-teams").then((data) => {
     const team = data;
-  
-    for (let i = 0; i < team.length; i++) { 
+    console.log(team);
+    for (let i = 0; i < team.length; i++) {
       const cardFormat = `
 <div class="card">
 <div class="card-header">
@@ -19,5 +18,6 @@ $(document).ready(() => {
 </div>
 `;
       $("#openTeams").prepend(cardFormat);
-    }});
+    }
+  });
 });

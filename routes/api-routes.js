@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const {Op} = require("sequelize");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -40,10 +41,10 @@ module.exports = function(app) {
   app.post("/api/team-create", (req, res) => {
     db.Team.create({
       teamName: req.body.teamName,
+      playerCount: 1
     })
       .then((data) => {
         const newRow = data._previousDataValues;
-        console.log(newRow);
         res.json(newRow);
         db.User.update(
           {
@@ -60,9 +61,11 @@ module.exports = function(app) {
       });
   });
 
-  // app.put("/api/teamLink", (req,res) => {
+  // app.put("/api/team-join", (req,res) => {
+  //   if 
   //   db.User.update({
-  //     teamId: req.body.id
+  //     teamId: req.body.id,
+  //     playerCount: ++
   //   },
   //   {
   //     where: {id: req.user.id}
@@ -110,7 +113,6 @@ module.exports = function(app) {
           id: userInfo.teamId,
         },
       });
-      console.log(teamInfo);
       res.json(teamInfo);
     }
   });
@@ -135,7 +137,6 @@ module.exports = function(app) {
         mercenaryStatus: true,
       },
     }).then((data) => {
-      console.log(data);
       res.json(data);
     });
   });
@@ -143,7 +144,7 @@ module.exports = function(app) {
   app.get("/api/open-teams", (req, res) => {
     db.Team.findAll({
       where: {
-        battleStatus: false,
+        playerCount: {[Op.lt]: 5}
       },
     }).then((data) => {
       console.log(data);
