@@ -440,3 +440,15 @@ hr {
   background: #3fb5c5;
   border-color: #3fb5c5;
 }
+
+.homeContainer {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.jumbotron {
+  border-color: #343a40;
+  border-width: 1px;
+  border-style: solid;
+  padding: 3%;
+}

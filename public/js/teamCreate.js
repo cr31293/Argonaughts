@@ -8,7 +8,7 @@ $(document).ready(() => {
   teamCreateForm.on("submit", event => {
     event.preventDefault();
     const userData = {
-      name: nameInput.val().trim(),
+      name: nameInput.val().trim()
     };
   
     if (!userData.name) {
@@ -22,18 +22,18 @@ $(document).ready(() => {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function teamCreate(name) {
-    $.post("/api/signup", {
-      teamName: name,
+    $.post("/api/team-create", {
+      teamName: name
     })
       .then(() => {
-        window.location.replace("/team");
-        // If there's an error, handle it by throwing up a bootstrap alert
+        window.location.replace("/login");
       })
+      // If there's an error, handle it by throwing up a bootstrap alert
       .catch(handleLoginErr);
   }
   
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert.msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
 });
