@@ -2,19 +2,21 @@
 
 ## Description
 
-Argonauts is an alternative to team based matchmaking designed to help players/users circumvent, often faulty, in-game matchmaking systems by allowing users to create join and look for teams. 
+Argonauts is an alternative to team based matchmaking designed to help players/users circumvent, often faulty, in-game matchmaking systems by allowing users to create join and look for teams.
 
-## Table of  Contents
+[Demo Video](https://drive.google.com/file/d/1Q8POu9DPZP4e56CjYNTsZPNPTzLcqt1z/view)
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
-  In so far as this being a web app, no traditional installation is necessary.
+In so far as this being a web app, no traditional installation is necessary.
 
 ## Usage
 
@@ -33,4 +35,5 @@ At the moment we are not looking for more collaborators, however feel free to re
 - Nader Mashy @ Nadoraluka
 
 ## License
+
 [ISC](https://choosealicense.com/licenses/isc/)
